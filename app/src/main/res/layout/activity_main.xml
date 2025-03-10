@@ -1,0 +1,91 @@
+<androidx.cardview.widget.CardView android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/main"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingEnd="10dp"
+    android:paddingStart="16dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="#000000">
+
+    <LinearLayout
+        android:layout_width="393dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_gravity="top"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:background="#FFFFFF">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="zamow sb kawke ;p" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioGroup
+                android:id="@+id/coffee_radiogroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <RadioButton
+                    android:id="@+id/espresso_radiobutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="espresso" />
+
+                <RadioButton
+                    android:id="@+id/cappuccino_radiobutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="cappuccino" />
+
+                <RadioButton
+                    android:id="@+id/latte_radiobutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="latte" />
+
+                <CheckBox
+                    android:id="@+id/mleko_checkBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="mleko" />
+
+                <CheckBox
+                    android:id="@+id/cukier_checkBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="cukier" />
+            </RadioGroup>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="coffeeImage"
+                android:scaleType="centerCrop"
+                android:id="@+id/imageView"/>
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="ile kaw zamawiasz? (max 5 zebys nie padl na serce)"
+            android:layout_margin="10dp"/>
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="5"
+            android:progress="1"
+            android:progressBackgroundTint="#666666"
+            android:progressTint="#000000"
+            android:thumbTint="#FF0000" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
