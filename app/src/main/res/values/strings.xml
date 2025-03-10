@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">CarConfigurator</string>
+    <string name="sedan">Sedan</string>
+    <string name="suv">SUV</string>
+    <string name="hatchback">Hatchback</string>
+    <string name="car_configurator">Car Configurator</string>
+    <string name="image_of_the_chosen_car">Image of the chosen car</string>
+    <string name="air_conditioning">Klimatyzacja</string>
+    <string name="leather_seats">Skórzane siedzenia</string>
+    <string name="bulletproof_glass">Kuloodporne szyby</string>
+    <string name="send">Wyślij</string>
+    <string name="summary">Podsumowanie</string>
 </resources>
