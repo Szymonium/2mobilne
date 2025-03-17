@@ -11,62 +11,60 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:text="@string/car_configurator"
         android:textAlignment="center"
-        android:textSize="50sp"
-        android:layout_marginBottom="10dp"/>
+        android:textSize="50sp" />
 
     <RadioGroup
         android:id="@+id/cars"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        tools:ignore="UselessParent"
-        android:layout_marginBottom="10dp">
+        android:layout_marginBottom="10dp"
+        tools:ignore="UselessParent">
 
         <RadioButton
-            android:id="@+id/sedan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="true"
             android:text="@string/sedan" />
 
         <RadioButton
-            android:id="@+id/suv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/suv" />
 
         <RadioButton
-            android:id="@+id/hatchback"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/hatchback" />
     </RadioGroup>
 
     <ImageView
+        android:id="@+id/car_image"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:contentDescription="@string/image_of_the_chosen_car"
-        android:src="@drawable/sedan"
         android:layout_marginBottom="10dp"
-        android:id="@+id/car_image"/>
+        android:contentDescription="@string/image_of_the_chosen_car" />
 
     <LinearLayout
+        android:id="@+id/checkboxes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_gravity="center"
         android:layout_marginBottom="10dp"
-        android:id="@+id/checkboxes">
+        android:orientation="vertical">
+
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/air_conditioning" />
+
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/leather_seats" />
+
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -74,25 +72,25 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/send"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/send"
         android:layout_gravity="center"
         android:layout_marginBottom="10dp"
-        android:onClick="send"/>
+        android:text="@string/send" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:text="@string/summary"
         android:textAlignment="center"
-        android:textSize="35sp"
-        android:layout_marginBottom="10dp"/>
+        android:textSize="35sp" />
 
     <TextView
+        android:id="@+id/summary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/summary"
         android:textAlignment="center" />
 
 </LinearLayout>
