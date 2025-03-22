@@ -1,2 +1,2 @@
 # 2mobilne
-huj
+h*j
