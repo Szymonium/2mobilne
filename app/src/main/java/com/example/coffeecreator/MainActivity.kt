@@ -1,39 +1,56 @@
 package com.example.coffeecreator
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import androidx.activity.enableEdgeToEdge
+import android.util.Log
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-        val myImageView: ImageView = findViewById(R.id.imageView)
-        val images = listOf(
-            R.drawable.espresso,
-            R.drawable.capuccino,
-            R.drawable.latte
-        )
-        myImageView.setImageResource(R.drawable.espresso)
-        val coffeeGroup: RadioGroup = findViewById(R.id.coffee_radiogroup)
 
-        val rbId = coffeeGroup.getCheckedRadioButtonId()
-        when (rbId) {
-            R.id.espresso_radiobutton->myImageView.setImageResource(R.drawable.espresso)
-            R.id.cappuccino_radiobutton->myImageView.setImageResource(R.drawable.capuccino)
-            R.id.latte_radiobutton->myImageView.setImageResource(R.drawable.latte)
+        val coffeeImage: ImageView = findViewById(R.id.coffeeImage)
+        val espressoRadio: RadioButton = findViewById(R.id.radio_espresso)
+        val cappuccinoRadio: RadioButton = findViewById(R.id.radio_cappuccino)
+        val latteRadio: RadioButton = findViewById(R.id.radio_latte)
+        val milkCheckBox: CheckBox = findViewById(R.id.checkbox_milk)
+        val sugarCheckBox: CheckBox = findViewById(R.id.checkbox_sugar)
+        val quantitySeekBar: SeekBar = findViewById(R.id.seekbar_quantity)
+        val quantityText: TextView = findViewById(R.id.text_quantity)
+        val orderButton: Button = findViewById(R.id.button_order)
+
+        val coffeeSelectionListener = RadioGroup.OnCheckedChangeListener { _, _ ->
+            when {
+                espressoRadio.isChecked -> coffeeImage.setImageResource(R.drawable.espresso)
+                cappuccinoRadio.isChecked -> coffeeImage.setImageResource(R.drawable.cappuccino)
+                latteRadio.isChecked -> coffeeImage.setImageResource(R.drawable.latte)
+            }
+        }
+        findViewById<RadioGroup>(R.id.radio_group).setOnCheckedChangeListener(coffeeSelectionListener)
+
+        quantitySeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                quantityText.text = "Ilosc: $progress"
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+        })
+
+        orderButton.setOnClickListener {
+            val selectedCoffee = when {
+                espressoRadio.isChecked -> "Espresso"
+                cappuccinoRadio.isChecked -> "Cappuccino"
+                latteRadio.isChecked -> "Latte"
+                else -> "Wybierz kawe."
+            }
+            val milk = if (milkCheckBox.isChecked) "z mlekiem" else "bez mleka"
+            val sugar = if (sugarCheckBox.isChecked) "z cukrem" else "bez cukru"
+            val quantity = quantitySeekBar.progress
+
+            val orderSummary = "Zamowiono: $quantity sztuk $selectedCoffee, $milk, $sugar."
+            Toast.makeText(this, orderSummary, Toast.LENGTH_LONG).show()
         }
     }
 }
