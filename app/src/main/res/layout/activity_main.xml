@@ -1,91 +1,78 @@
-<androidx.cardview.widget.CardView android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:paddingEnd="10dp"
-    android:paddingStart="16dp"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    app:cardElevation="4dp"
-    app:cardBackgroundColor="#000000">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
     <LinearLayout
-        android:layout_width="393dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_gravity="top"
-        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="#FFFFFF">
+        android:padding="16dp">
 
-        <TextView
+        <ImageView
+            android:id="@+id/coffeeImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="zamow sb kawke ;p" />
+            android:layout_gravity="center"
+            android:maxWidth="150dp"
+            android:maxHeight="150dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:src="@drawable/espresso" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <RadioGroup
-                android:id="@+id/coffee_radiogroup"
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/radio_espresso"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="5dp">
+                android:text="Espresso" />
+            <RadioButton
+                android:id="@+id/radio_cappuccino"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cappuccino" />
+            <RadioButton
+                android:id="@+id/radio_latte"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Latte" />
+        </RadioGroup>
 
-                <RadioButton
-                    android:id="@+id/espresso_radiobutton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="espresso" />
+        <CheckBox
+            android:id="@+id/checkbox_milk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mleko" />
 
-                <RadioButton
-                    android:id="@+id/cappuccino_radiobutton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="cappuccino" />
+        <CheckBox
+            android:id="@+id/checkbox_sugar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cukier" />
 
-                <RadioButton
-                    android:id="@+id/latte_radiobutton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="latte" />
-
-                <CheckBox
-                    android:id="@+id/mleko_checkBox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="mleko" />
-
-                <CheckBox
-                    android:id="@+id/cukier_checkBox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="cukier" />
-            </RadioGroup>
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="coffeeImage"
-                android:scaleType="centerCrop"
-                android:id="@+id/imageView"/>
-
-        </LinearLayout>
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="ile kaw zamawiasz? (max 5 zebys nie padl na serce)"
-            android:layout_margin="10dp"/>
+            android:id="@+id/text_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ilosc: 1" />
+
         <SeekBar
-            android:id="@+id/seekBar"
+            android:id="@+id/seekbar_quantity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:max="5"
-            android:progress="1"
-            android:progressBackgroundTint="#666666"
-            android:progressTint="#000000"
-            android:thumbTint="#FF0000" />
+            android:progress="1" />
+
+        <Button
+            android:id="@+id/button_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Zamow" />
     </LinearLayout>
-</androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
